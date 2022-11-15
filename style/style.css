@@ -1,0 +1,128 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  font-weight: 900;
+  font-size: 2.5em;
+}
+@media (min-width: 768px) {
+  body {
+    font-size: 3em;
+  }
+}
+@media (min-width: 1024px) {
+  body {
+    font-size: 4em;
+  }
+}
+@media (min-width: 2560px) {
+  body {
+    font-size: 6.5em;
+  }
+}
+
+.wrapper {
+  height: 100vh;
+}
+
+.parallax {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  perspective: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -ms-overflow-style: none; /* IE, Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.parallax::-webkit-scrollbar { /*Chrome, Safari, Opera*/
+  display: none;
+}
+.parallax__item {
+  position: absolute;
+}
+.parallax__item_top {
+  transform: translateZ(-10px) scale(2.1);
+  height: 100%;
+  width: 100%;
+  -webkit-transform: translateZ(-10px) scale(2.1); /* WebKit */
+  -moz-transform: translateZ(-10px) scale(2.1); /* Mozilla */
+  -o-transform: translateZ(-10px) scale(2.1); /* Opera */
+  -ms-transform: translateZ(-10px) scale(2.1); /* IE */
+}
+.parallax__item_middle {
+  transform: translateZ(-5px) scale(1.8);
+  height: 100%;
+  width: 100%;
+  -webkit-transform: translateZ(-5px) scale(1.8); /* WebKit */
+  -moz-transform: translateZ(-5px) scale(1.8); /* Mozilla */
+  -o-transform: translateZ(-5px) scale(1.8); /* Opera */
+  -ms-transform: translateZ(-5px) scale(1.8); /* IE */
+  z-index: 2;
+  top: 170%;
+  box-shadow: 0px 1px 25px 5px #000000;
+  -webkit-box-shadow: 0px 1px 25px 5px #000000;
+}
+.parallax__item_bottom {
+  transform: translateZ(-10px) scale(2.1);
+  height: 100%;
+  width: 100%;
+  -webkit-transform: translateZ(-10px) scale(2.1); /* WebKit */
+  -moz-transform: translateZ(-10px) scale(2.1); /* Mozilla */
+  -o-transform: translateZ(-10px) scale(2.1); /* Opera */
+  -ms-transform: translateZ(-10px) scale(2.1); /* IE */
+  z-index: 1;
+  top: 335%;
+}
+
+.title-top {
+  z-index: 1;
+}
+
+.title-middle {
+  z-index: 3;
+  top: 210%;
+  color: white;
+}
+
+.title-bottom {
+  z-index: 2;
+  top: 370%;
+  color: white;
+  text-decoration: underline;
+}
+
+.image-winter, .image-to, .image-summer {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=style.css.map */

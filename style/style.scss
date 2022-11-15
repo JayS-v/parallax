@@ -1,0 +1,107 @@
+
+@use 'simple-reset.css';
+
+@mixin for-tablet {
+    @media (min-width:768px) {@content;}
+}
+@mixin for-desktop {
+    @media (min-width:1024px) {@content;}
+}
+@mixin for-4K {
+    @media (min-width:2560px) {@content;}
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-weight: 900;
+    font-size: 2.5em;
+    @include for-tablet {
+        font-size: 3em;
+    }
+    @include for-desktop {
+        font-size: 4em;
+    }
+    @include for-4K {
+        font-size: 6.5em;
+    }
+    
+}
+.wrapper {
+    height: 100vh; 
+}
+
+.parallax {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    perspective: 10px;
+       //scrollbar settings
+    overflow-y: auto;
+    overflow-x: hidden;
+    -ms-overflow-style: none;  /* IE, Edge */
+    scrollbar-width: none;  /* Firefox */
+    &::-webkit-scrollbar { /*Chrome, Safari, Opera*/
+        display: none;
+    }
+
+    &__item {
+        position: absolute;
+    
+        @mixin  set-dimensions-transform($translateZ-value, $scale-value) {
+            transform: translateZ($translateZ-value) scale($scale-value);
+            height: 100%;
+            width: 100%;
+
+            -webkit-transform: translateZ($translateZ-value) scale($scale-value); /* WebKit */
+            -moz-transform: translateZ($translateZ-value) scale($scale-value); /* Mozilla */
+            -o-transform: translateZ($translateZ-value) scale($scale-value); /* Opera */
+            -ms-transform: translateZ($translateZ-value) scale($scale-value); /* IE */
+        }
+
+        &_top{
+            @include set-dimensions-transform(-10px, 2.1);
+        }
+        &_middle {
+            @include set-dimensions-transform(-5px, 1.8);
+            z-index: 2;
+            top: 170%;
+            box-shadow: 0px 1px 25px 5px  #000000;
+            -webkit-box-shadow : 0px 1px 25px 5px  #000000;
+        }
+        &_bottom {
+            @include set-dimensions-transform(-10px, 2.1);   
+            z-index: 1;   
+            top: 335%;
+        }
+    }
+}
+
+.title-top {
+    z-index: 1;   
+}
+.title-middle {
+    z-index: 3;   
+    top: 210%;
+    color: white;
+}
+.title-bottom {
+    z-index: 2; 
+    top: 370%;
+    color: white;
+    text-decoration: underline;
+}
+
+.image-winter, .image-to, .image-summer {
+    height: 100%;
+    width: 100%; 
+    object-fit: cover; 
+}
+
+
+
+
+
